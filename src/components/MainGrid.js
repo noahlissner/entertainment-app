@@ -2,6 +2,7 @@ import React from "react";
 import { ReactComponent as MovieIcon } from "../assets/icon-category-movie.svg";
 import { ReactComponent as TvIcon } from "../assets/icon-category-tv.svg";
 import { ReactComponent as BookmarkEmpty } from "../assets/icon-bookmark-empty.svg";
+import { ReactComponent as PlayIcon } from "../assets/icon-play.svg";
 
 const MainGrid = ({ data, recommendedTitle }) => {
   return (
@@ -14,14 +15,21 @@ const MainGrid = ({ data, recommendedTitle }) => {
 
       <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[15px] md:gap-[30px] lg:gap-10">
         {data.map((item) => (
-          <div key={item.title}>
-            <div className="bg-blue-200 h-[110px] md:h-[140px] lg:h-[174px] relative rounded-lg overflow-hidden">
+          <div key={item.title} className="relative parent">
+            <div className="player h-[110px] md:h-[140px] lg:h-[174px]">
+              <div className="">
+                <PlayIcon />
+                <p className="text-heading-xs font-medium">Play</p>
+              </div>
+            </div>
+            <div className=" bg-blue-200 h-[110px] md:h-[140px] lg:h-[174px] relative rounded-lg overflow-hidden">
               <div
                 className="absolute z-10 right-2 top-2 md:right-4 md:top-4 w-8 h-8 bg-dark-blue/50 rounded-full
               flex items-center justify-center group hover:bg-white cursor-pointer duration-200"
               >
                 <BookmarkEmpty className="group-hover:text-dark-blue duration-200" />
               </div>
+
               <img
                 src={item.thumbnail.regular.small}
                 className="sm:hiddden absolute h-full w-full object-cover"
