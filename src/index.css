@@ -9,3 +9,7 @@
     font-family: "Outfit", system-ui, sans-serif;
   }
 }
+
+*::-webkit-scrollbar {
+  display: none;
+}
